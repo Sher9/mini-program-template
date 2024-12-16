@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "详情",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f7f8fa",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-loading": "tdesign-miniprogram/loading/loading"
+  }
+} 

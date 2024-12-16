@@ -1,0 +1,68 @@
+<view class="login-container">
+  <view class="login-background">
+    <view class="circle circle-1"></view>
+    <view class="circle circle-2"></view>
+  </view>
+
+  <view class="login-content" animation="{{animation}}">
+    <view class="login-header">
+      <text class="title">欢迎登录</text>
+      <text class="subtitle">登录后开启您的专属服务</text>
+    </view>
+
+    <view class="login-form">
+      <view class="input-group">
+        <t-icon name="user" size="48rpx" color="#666"/>
+        <input
+          class="input"
+          type="text"
+          placeholder="请输入用户名"
+          value="{{username}}"
+          data-field="username"
+          bindinput="handleInput"
+        />
+      </view>
+
+      <view class="input-group">
+        <t-icon name="lock-on" size="48rpx" color="#666"/>
+        <input
+          class="input"
+          password="{{!showPassword}}"
+          placeholder="请输入密码"
+          value="{{password}}"
+          data-field="password"
+          bindinput="handleInput"
+        />
+        <view class="password-icon" bindtap="togglePasswordVisibility">
+          <t-icon name="{{showPassword ? 'eye' : 'eye-close'}}" size="48rpx" color="#666"/>
+        </view>
+      </view>
+
+      <view class="options">
+        <text class="forget-password">忘记密码？</text>
+      </view>
+
+      <button 
+        class="login-button {{isLoading ? 'loading' : ''}}" 
+        bindtap="handleLogin"
+        disabled="{{isLoading}}"
+      >
+        <text>{{isLoading ? '登录中...' : '登录'}}</text>
+        <t-icon wx:if="{{isLoading}}" name="loading" size="48rpx" color="#fff"/>
+      </button>
+
+      <view class="other-login">
+        <view class="divider">
+          <view class="line"></view>
+          <text>其他登录方式</text>
+          <view class="line"></view>
+        </view>
+        <view class="social-icons">
+          <t-icon name="logo-wechat" size="64rpx" color="#07c160"/>
+          <t-icon name="logo-qq" size="64rpx" color="#1296db"/>
+          <t-icon name="logo-wecom" size="64rpx" color="#2b65d9"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

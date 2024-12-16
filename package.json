@@ -1,0 +1,13 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "tdesign-miniprogram": "^1.2.4"
+  },
+  "scripts": {
+    "build": "npm run build:npm",
+    "build:npm": "node ./build/build-npm.js"
+  }
+} 

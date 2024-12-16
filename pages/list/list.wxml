@@ -1,0 +1,65 @@
+<view class="list-container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <t-icon name="search" size="44rpx" color="#999"/>
+      <input
+        class="search-input"
+        placeholder="搜索"
+        value="{{keyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+        confirm-type="search"
+      />
+      <t-icon 
+        wx:if="{{keyword}}"
+        name="close-circle-filled" 
+        size="40rpx" 
+        color="#999"
+        bindtap="onSearchClear"
+      />
+    </view>
+  </view>
+
+  <!-- 下拉刷新提示 -->
+  <view wx:if="{{refreshing}}" class="refresh-tip">
+    <t-icon name="refresh" size="36rpx" color="#1890ff"/>
+    <text>刷新中...</text>
+  </view>
+
+  <!-- 列表内容 -->
+  <view class="list-content {{refreshing ? 'refreshing' : ''}}">
+    <view 
+      class="list-item" 
+      wx:for="{{list}}" 
+      wx:key="id"
+      bindtap="onItemClick"
+      data-id="{{item.id}}"
+    >
+      <image class="item-image" src="{{item.image}}" mode="aspectFill"/>
+      <view class="item-info">
+        <view class="item-title">{{item.title}}</view>
+        <view class="item-desc">{{item.desc}}</view>
+        <view class="item-footer">
+          <text class="item-date">{{item.date}}</text>
+          <t-icon name="chevron-right" size="32rpx" color="#999"/>
+        </view>
+      </view>
+    </view>
+
+    <!-- 加载更多提示 -->
+    <view class="loading-more" wx:if="{{list.length > 0}}">
+      <block wx:if="{{loadingMore}}">
+        <t-icon name="loading" size="36rpx" color="#999"/>
+        <text>加载中...</text>
+      </block>
+      <text wx:elif="{{!hasMore}}">没有更多了</text>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{!loading && list.length === 0}}" class="empty-state">
+    <t-icon name="info-circle" size="96rpx" color="#999"/>
+    <text>暂无数据</text>
+  </view>
+</view> 

@@ -1,0 +1,63 @@
+<view class="container">
+  <swiper class="banner" indicator-dots autoplay circular>
+    <swiper-item wx:for="{{banners}}" wx:key="index" class="banner-item">
+      <image src="{{item}}" mode="aspectFill" class="banner-image"/>
+    </swiper-item>
+  </swiper>
+
+  <view class="quick-actions">
+    <view class="quick-action-item" 
+          wx:for="{{quickActions}}" 
+          wx:key="index"
+          bindtap="onQuickAction"
+          data-index="{{index}}">
+      <view class="icon-wrapper" style="background: {{item.color}}20">
+        <t-icon name="{{item.icon}}" size="48rpx" color="{{item.color}}"/>
+      </view>
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+
+  <view class="section news-section">
+    <view class="section-header">
+      <text class="section-title">最新动态</text>
+      <t-icon name="chevron-right" size="40rpx" color="#999"/>
+    </view>
+    <view class="news-list">
+      <view class="news-item" 
+            wx:for="{{news}}" 
+            wx:key="index"
+            bindtap="onNewsClick"
+            data-index="{{index}}">
+        <view class="news-content">
+          <t-icon name="notification" size="36rpx" color="#1890ff"/>
+          <text class="news-title">{{item.title}}</text>
+        </view>
+        <text class="news-time">{{item.time}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">核心功能</text>
+      <t-icon name="chevron-right" size="40rpx" color="#999"/>
+    </view>
+    <view class="features-grid">
+      <view class="feature-item" 
+            wx:for="{{features}}" 
+            wx:key="index"
+            bindtap="onFeatureClick"
+            data-index="{{index}}"
+            style="background: {{item.background}}">
+        <view class="feature-icon">
+          <t-icon name="{{item.icon}}" size="56rpx" color="{{item.color}}"/>
+        </view>
+        <view class="feature-info">
+          <text class="feature-title">{{item.title}}</text>
+          <text class="feature-desc">{{item.desc}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

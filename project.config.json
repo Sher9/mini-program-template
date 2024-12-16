@@ -1,0 +1,39 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "miniprogramRoot": "",
+  "compileType": "miniprogram",
+  "projectname": "miniprogram",
+  "setting": {
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./"
+      }
+    ],
+    "useCompilerPlugins": [
+      "sass",
+      "typescript"
+    ],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "es6": true,
+    "enhance": true
+  },
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {},
+  "appid": "wxb3c41a7de72c35f3",
+  "libVersion": "3.3.4",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

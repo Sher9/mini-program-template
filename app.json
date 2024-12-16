@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/home/home",
+    "pages/detail/detail",
+    "pages/list/list",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1777FF",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "小程序",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#0052d9",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "列表"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+} 

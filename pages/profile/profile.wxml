@@ -1,0 +1,100 @@
+<view class="profile-container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="card-background">
+      <view class="blur-bg"></view>
+      <view class="gradient-overlay"></view>
+      <!-- 添加动态波浪效果 -->
+      <view class="wave-animation">
+        <view class="wave wave1"></view>
+        <view class="wave wave2"></view>
+      </view>
+    </view>
+
+    <view class="user-info">
+      <!-- 左侧头像区域 -->
+      <view class="avatar-section">
+        <view class="avatar-container">
+          <view class="avatar-ring"></view>
+          <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"/>
+          <view class="vip-badge">
+            <t-icon name="vip" size="24rpx" color="#fff"/>
+          </view>
+        </view>
+      </view>
+
+      <!-- 右侧用户信息 -->
+      <view class="user-details">
+        <view class="name-section">
+          <text class="nickname">{{userInfo.nickname}}</text>
+          <view class="user-tags">
+            <view class="level-tag">
+              <t-icon name="star-filled" size="24rpx" color="#FFD700"/>
+              <text>{{userInfo.level}}</text>
+            </view>
+            <view class="vip-tag">
+              <t-icon name="crown" size="24rpx" color="#FFD700"/>
+              <text>{{userInfo.vipStatus}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="user-bio">这个人很懒，还没有写简介~</view>
+      </view>
+
+      <!-- 编辑按钮 -->
+      <view class="action-buttons">
+        <view class="edit-btn" bindtap="onEditProfile">
+          <t-icon name="edit" size="32rpx" color="#fff"/>
+        </view>
+        <view class="settings-btn" bindtap="onSettings">
+          <t-icon name="setting" size="32rpx" color="#fff"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷功能区 -->
+  <view class="quick-actions">
+    <view class="action-item" wx:for="{{quickActions}}" wx:key="text" bindtap="onQuickAction" data-type="{{item.type}}">
+      <view class="action-icon" style="background: {{item.color}}15">
+        <t-icon name="{{item.icon}}" size="48rpx" color="{{item.color}}"/>
+      </view>
+      <text>{{item.text}}</text>
+      <text class="action-value">{{item.value}}</text>
+    </view>
+  </view>
+
+  <!-- 功能菜单组 -->
+  <view class="menu-group" wx:for="{{menuGroups}}" wx:key="title">
+    <view class="group-header">
+      <text class="group-title">{{item.title}}</text>
+      <view class="group-more" wx:if="{{item.more}}" bindtap="onMoreTap" data-type="{{item.type}}">
+        <text>更多</text>
+        <t-icon name="chevron-right" size="32rpx" color="#999"/>
+      </view>
+    </view>
+    <view class="menu-grid">
+      <view class="menu-item" 
+            wx:for="{{item.items}}" 
+            wx:key="text"
+            wx:for-item="subItem"
+            bindtap="onMenuClick"
+            data-type="{{subItem.type}}">
+        <view class="menu-icon-wrapper" style="background: {{subItem.color}}10">
+          <t-icon name="{{subItem.icon}}" size="48rpx" color="{{subItem.color}}"/>
+        </view>
+        <text>{{subItem.text}}</text>
+        <view class="item-badge" wx:if="{{subItem.badge}}">{{subItem.badge}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出登录按钮 -->
+  <view class="logout-section">
+    <view class="logout-button" bindtap="onLogout">
+      <t-icon name="poweroff" size="36rpx" color="#999"/>
+      <text>退出登录</text>
+    </view>
+    <text class="version-text">当前版本 1.0.0</text>
+  </view>
+</view> 
